@@ -1,0 +1,60 @@
+---
+title: "ej_screen"
+format: html
+editor: visual
+---
+
+```{r}
+# Loading in Libraries
+library(tidyverse)
+library(sf)
+library(here)
+library(tmap)
+```
+
+```{r}
+
+# Read in geodatabase of EJScreen data at the Census Block Group level
+ejscreen <- sf::st_read(here::here("data", "ejscreen","EJSCREEN_2023_BG_StatePct_with_AS_CNMI_GU_VI.gdb")) 
+```
+
+```{r}
+# Filter to only include California data
+california <- ejscreen %>%
+  dplyr::filter(ST_ABBREV == "CA") 
+
+# Filter to only include Monterey County data
+monterey <- ejscreen %>%
+  dplyr::filter(CNTY_NAME %in% c("Monterey County"))
+```
+
+
+```{r}
+# Generating Map 1
+tm_shape(monterey) + #defines spacial object to plot
+  tm_polygons() +
+  tm_graticules() + # Adding graticules
+  tm_fill("P_LDPNT",   # Percentile for Lead paint
+          palette = "Blues", 
+          title = "Exposure Risk Percentile") + 
+  tm_title("Percentile for Lead Paint Exposure Risk in Monterey County") +
+  tm_scale_bar() +
+  tm_compass(position = c("right", "top"))
+```
+
+```{r}
+# Generating Map 2
+tm_shape(monterey) + #defines spacial object to plot
+  tm_polygons() +
+  tm_graticules() + # Adding graticules
+  tm_fill("P_RSEI_AIR",   # Percentile for Toxic Releases to Air
+          palette = "Blues", 
+          title = "Exposure Risk Percentile (%)") + 
+  tm_title("Toxic Air Pollutant Exposure Risk in Monterey County") +
+  tm_scale_bar() +
+  tm_compass(position = c("right", "top"))
+```
+## About my Maps
+My maps show different environmental injustices occuring in Monterey County, CA. My first map shows
+
+
