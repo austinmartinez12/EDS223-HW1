@@ -8,7 +8,7 @@ editor_options:
 
 ### Environmental Injustice Map Making Practice
 
-![](https://www.governmentjobs.com/AgencyPages/montereycounty/agencyImages/download/MC_SEAL_2023.png?upscale=True){width="200px"
+![](https://www.governmentjobs.com/AgencyPages/montereycounty/agencyImages/download/MC_SEAL_2023.png?upscale=True){width="100px"
 fig-align="center"}
 
 #### Purpose
@@ -44,15 +44,13 @@ This repository contains:
 
 -   data was downloaded from this link:
     <https://drive.google.com/file/d/1nG6Nj1bXfzQFOVMO8Km3eNy4SWu1YcIQ/view>
-    
+
 # Questions for Alej
 
-How is my read me? is the references ok? what about data acsess?
-How are my maps? anything I should add or change
-How do I render it as a PDF
-Do I need all the files in my data folder?
-is the table of contents ok?
-How is my map desription?
-
-
-
+-   How is my read me? ( how do i get rid of editior options)
+-   is the references ok? what about data acsess?
+-   How are my maps? anything I should add or change
+-   How do I render it as a PDF 
+-   Do I need all the files in my data folder?
+-   is the table of contents ok?
+-   How is my map description?
