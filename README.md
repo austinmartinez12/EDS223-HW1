@@ -16,9 +16,8 @@ fig-align="center"}
 The purpose of this repository is to create 2 maps using data downloaded
 from the EPA website at the block group level for Monterrey County, CA.
 These maps were generated using the tmap package. The first map shows
-the percentile exposure risk for lead paint in Monterey County. The
-second map shows exposure risk for toxic air pollutants in Monterey
-County.
+the unemplyment rate percentile in Monterey County. The second map shows
+exposure risk for toxic air pollutants in Monterey County.
 
 #### Contents
 
@@ -50,7 +49,8 @@ This repository contains:
 -   How is my read me? ( how do i get rid of editior options)
 -   is the references ok? what about data acsess?
 -   How are my maps? anything I should add or change
--   How do I render it as a PDF 
+-   How do I render it as a PDF
 -   Do I need all the files in my data folder?
+    -   do i add data to my table of contents
 -   is the table of contents ok?
 -   How is my map description?

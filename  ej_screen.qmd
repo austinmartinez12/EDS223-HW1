@@ -28,17 +28,22 @@ monterey <- ejscreen %>%
   dplyr::filter(CNTY_NAME %in% c("Monterey County"))
 ```
 
+```{r}
+# Turning PEOPCOLORPCT column into intergers from decimals
+monterey$PEOPCOLORPCT <- monterey$PEOPCOLORPCT * 100
+```
+
 
 ```{r}
 # Generating Map 1
 tm_shape(monterey) + #defines spacial object to plot
   tm_polygons() +
   tm_graticules() + # Adding graticules
-  tm_fill("P_LDPNT",   # Percentile for Lead paint
+  tm_fill("PEOPCOLORPCT",  # % unemployed
           palette = "Blues", 
-          title = "Exposure Risk Percentile") + 
-  tm_title("Percentile for Lead Paint Exposure Risk in Monterey County") +
-  tm_scale_bar() +
+          title = "POC Percentile (%)") + 
+  tm_title("People of Color Percentile in Monterey County") +
+  tm_scale_bar(position = c("left", "bottom")) +
   tm_compass(position = c("right", "top"))
 ```
 
@@ -51,10 +56,15 @@ tm_shape(monterey) + #defines spacial object to plot
           palette = "Blues", 
           title = "Exposure Risk Percentile (%)") + 
   tm_title("Toxic Air Pollutant Exposure Risk in Monterey County") +
-  tm_scale_bar() +
+  tm_scale_bar(position = c("left", "bottom")) +
   tm_compass(position = c("right", "top"))
 ```
 ## About my Maps
-My maps show different environmental injustices occuring in Monterey County, CA. My first map shows
+The maps produced display different environmental injustices occurring in Monterey County, CA. Map 1 shows the percentile for people of color. The second map shows exposure risk for toxic air pollutants. When the maps are compared you can see that there tends to be more toxic air polutants in places that have a higher percentage of for people of color. Within Monterey County there are four point-source for air pollution According to the US EPA's Toxic Release Inventory (TRI) (Wade, 2022). These four TRI points are Dole Fresh Vegetables Inc, Fujifilm Ultra Pure Solutions Inc, Lhoist North America Natividad Plant, and US Army Garrison Fort Hunter Liggett Ranges. The locations of these four points are where air pollutant exposure risk is the highest.    
+
+
+
+
+
 
 
