@@ -1,8 +1,13 @@
 ---
-title: "ej_screen"
+title: "Environmental Inequalities in Monterey County: Race and Air Pollution"
 format: html
 editor: visual
+execute:
+  message: false
+  warning: false
 ---
+
+The purpose of this script is to create 2 maps using data downloaded from the EPA website at the block group level for Monterrey County, CA. These maps were generated using the tmap package. The first map shows the percentile for people of color rate in Monterey County. The second map shows exposure risk for toxic air pollutants in Monterey County. To investigate a possible relationship.
 
 ```{r}
 # Loading in Libraries
@@ -13,9 +18,9 @@ library(tmap)
 ```
 
 ```{r}
-
 # Read in geodatabase of EJScreen data at the Census Block Group level
-ejscreen <- sf::st_read(here::here("data", "ejscreen","EJSCREEN_2023_BG_StatePct_with_AS_CNMI_GU_VI.gdb")) 
+ejscreen <- sf::st_read(here::here("data", "ejscreen","EJSCREEN_2023_BG_StatePct_with_AS_CNMI_GU_VI.gdb"), 
+                        quiet = TRUE) # Add quiet = TRUE to get rid of informational output
 ```
 
 ```{r}
@@ -33,12 +38,10 @@ monterey <- ejscreen %>%
 monterey$PEOPCOLORPCT <- monterey$PEOPCOLORPCT * 100
 ```
 
-
 ```{r}
 # Generating Map 1
 tm_shape(monterey) + #defines spacial object to plot
   tm_polygons() +
-  tm_graticules() + # Adding graticules
   tm_fill("PEOPCOLORPCT",  # % unemployed
           palette = "Blues", 
           title = "POC Percentile (%)") + 
@@ -51,20 +54,19 @@ tm_shape(monterey) + #defines spacial object to plot
 # Generating Map 2
 tm_shape(monterey) + #defines spacial object to plot
   tm_polygons() +
-  tm_graticules() + # Adding graticules
   tm_fill("P_RSEI_AIR",   # Percentile for Toxic Releases to Air
-          palette = "Blues", 
+          palette = "Reds", 
           title = "Exposure Risk Percentile (%)") + 
   tm_title("Toxic Air Pollutant Exposure Risk in Monterey County") +
   tm_scale_bar(position = c("left", "bottom")) +
   tm_compass(position = c("right", "top"))
 ```
-## About my Maps
-The maps produced display different environmental injustices occurring in Monterey County, CA. Map 1 shows the percentile for people of color. The second map shows exposure risk for toxic air pollutants. When the maps are compared you can see that there tends to be more toxic air polutants in places that have a higher percentage of for people of color. Within Monterey County there are four point-source for air pollution According to the US EPA's Toxic Release Inventory (TRI) (Wade, 2022). These four TRI points are Dole Fresh Vegetables Inc, Fujifilm Ultra Pure Solutions Inc, Lhoist North America Natividad Plant, and US Army Garrison Fort Hunter Liggett Ranges. The locations of these four points are where air pollutant exposure risk is the highest.    
 
+## Maps Description
 
+The maps produced display different environmental injustices occurring in Monterey County, CA. Map 1 shows the percentile for people of color. The second map shows exposure risk for toxic air pollutants. When the maps are compared you can see that there tends to be more toxic air pollutants in places that have a higher percentage of for people of color. Within Monterey County there are four point-source for air pollution According to the US EPA's Toxic Release Inventory (TRI) (Wade, 2022). These four TRI points are Dole Fresh Vegetables Inc, Fujifilm Ultra Pure Solutions Inc, Lhoist North America Natividad Plant, and US Army Garrison Fort Hunter Liggett Ranges. The locations of these four points are where air pollutant exposure risk is the highest. Due to these regions being populated predominantly by people of color this environmental injustice has just been ignored.
 
+## Citations
 
-
-
-
+-   United States Environmental Protection Agency. 2015. EJSCREEN. Retrieved: 10, 06, 2025, from (<https://drive.google.com/file/d/1nG6Nj1bXfzQFOVMO8Km3eNy4SWu1YcIQ/view>)
+-   Wade, A. J. (2022, February 25). *Monterey County: Racial distribution and air pollution.* ArcGIS StoryMaps. [https://storymaps.arcgis.com/stories/4f19c2da231b4ecb98bc43db9b85e931](https://storymaps.arcgis.com/stories/4f19c2da231b4ecb98bc43db9b85e931?utm_source=chatgpt.com)
