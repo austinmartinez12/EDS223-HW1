@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Enviroemtnal Inequalities</title>
+<title>Environmental Inequalities in Monterey County: Race and Air Pollution</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -79,7 +79,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Enviroemtnal Inequalities</h1>
+<h1 class="title">Environmental Inequalities in Monterey County: Race and Air Pollution</h1>
 </div>
 
 
@@ -96,6 +96,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<p>The purpose of this script is to create 2 maps using data downloaded from the EPA website at the block group level for Monterrey County, CA. These maps were generated using the tmap package. The first map shows the percentile for people of color rate in Monterey County. The second map shows exposure risk for toxic air pollutants in Monterey County. To investigate a possible relationship.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Loading in Libraries</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
@@ -105,7 +106,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read in geodatabase of EJScreen data at the Census Block Group level</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>ejscreen <span class="ot">&lt;-</span> sf<span class="sc">::</span><span class="fu">st_read</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"ejscreen"</span>,<span class="st">"EJSCREEN_2023_BG_StatePct_with_AS_CNMI_GU_VI.gdb"</span>), <span class="at">quiet =</span> <span class="cn">TRUE</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>ejscreen <span class="ot">&lt;-</span> sf<span class="sc">::</span><span class="fu">st_read</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>,<span class="st">"EJSCREEN_2023_BG_StatePct_with_AS_CNMI_GU_VI.gdb"</span>), </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">quiet =</span> <span class="cn">TRUE</span>) <span class="co"># Add quiet = TRUE to get rid of informational output</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter to only include California data</span></span>
@@ -156,12 +158,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<section id="about-my-maps" class="level2">
-<h2 class="anchored" data-anchor-id="about-my-maps">About my Maps</h2>
-<p>The maps produced display different environmental injustices occurring in Monterey County, CA. Map 1 shows the percentile for people of color. The second map shows exposure risk for toxic air pollutants. When the maps are compared you can see that there tends to be more toxic air polutants in places that have a higher percentage of for people of color. Within Monterey County there are four point-source for air pollution According to the US EPA’s Toxic Release Inventory (TRI) (Wade, 2022). These four TRI points are Dole Fresh Vegetables Inc, Fujifilm Ultra Pure Solutions Inc, Lhoist North America Natividad Plant, and US Army Garrison Fort Hunter Liggett Ranges. The locations of these four points are where air pollutant exposure risk is the highest.<br>
-# citations</p>
-<p>different colors</p>
-<p>ej screen website for reference</p>
+<section id="maps-description" class="level2">
+<h2 class="anchored" data-anchor-id="maps-description">Maps Description</h2>
+<p>The maps produced display different environmental injustices occurring in Monterey County, CA. Map 1 shows the percentile for people of color. The second map shows exposure risk for toxic air pollutants. When the maps are compared you can see that there tends to be more toxic air pollutants in places that have a higher percentage of for people of color. Within Monterey County there are four point-source for air pollution According to the US EPA’s Toxic Release Inventory (TRI) (Wade, 2022). These four TRI points are Dole Fresh Vegetables Inc, Fujifilm Ultra Pure Solutions Inc, Lhoist North America Natividad Plant, and US Army Garrison Fort Hunter Liggett Ranges. The locations of these four points are where air pollutant exposure risk is the highest. Due to these regions being populated predominantly by people of color this environmental injustice has just been ignored.</p>
+</section>
+<section id="citations" class="level2">
+<h2 class="anchored" data-anchor-id="citations">Citations</h2>
+<ul>
+<li>United States Environmental Protection Agency. 2015. EJSCREEN. Retrieved: 10, 06, 2025, from (<a href="https://drive.google.com/file/d/1nG6Nj1bXfzQFOVMO8Km3eNy4SWu1YcIQ/view" class="uri">https://drive.google.com/file/d/1nG6Nj1bXfzQFOVMO8Km3eNy4SWu1YcIQ/view</a>)</li>
+<li>Wade, A. J. (2022, February 25). <em>Monterey County: Racial distribution and air pollution.</em> ArcGIS StoryMaps. <a href="https://storymaps.arcgis.com/stories/4f19c2da231b4ecb98bc43db9b85e931?utm_source=chatgpt.com">https://storymaps.arcgis.com/stories/4f19c2da231b4ecb98bc43db9b85e931</a></li>
+</ul>
 </section>
 
 </main>

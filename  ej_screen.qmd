@@ -19,7 +19,7 @@ library(tmap)
 
 ```{r}
 # Read in geodatabase of EJScreen data at the Census Block Group level
-ejscreen <- sf::st_read(here::here("data", "ejscreen","EJSCREEN_2023_BG_StatePct_with_AS_CNMI_GU_VI.gdb"), 
+ejscreen <- sf::st_read(here::here("data","EJSCREEN_2023_BG_StatePct_with_AS_CNMI_GU_VI.gdb"), 
                         quiet = TRUE) # Add quiet = TRUE to get rid of informational output
 ```
 

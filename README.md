@@ -33,16 +33,8 @@ This repository contains:
 #### References
 
 -   United States Environmental Protection Agency. 2015. EJSCREEN. Retrieved: 10, 06, 2025, from (<https://drive.google.com/file/d/1nG6Nj1bXfzQFOVMO8Km3eNy4SWu1YcIQ/view>)
+
 -   Wade, A. J. (2022, February 25). *Monterey County: Racial distribution and air pollution.* ArcGIS StoryMaps. [https://storymaps.arcgis.com/stories/4f19c2da231b4ecb98bc43db9b85e931](https://storymaps.arcgis.com/stories/4f19c2da231b4ecb98bc43db9b85e931?utm_source=chatgpt.com)
 
-# Questions for Alej
 
--   How is my read me? ( how do i get rid of editior options)
--   is the references ok? what about data acsess?
--   How are my maps? anything I should add or change
--   How do I render it as a PDF
--   Do I need all the files in my data folder?
-    -   do i add data to my table of contents
--   is the table of contents ok?
--   How is my map description?
--   what do i do with random folders
+
