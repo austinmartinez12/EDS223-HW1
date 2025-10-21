@@ -30,11 +30,12 @@ This repository contains:
 
 -   Austin Martinez
 
+#### Data Access
+
+-   The data used in this project is located in the data folder, but since the data folder was too big it was placed in the gitignore. This data was sourced from the United States Environmental Protection Agency’s previous [EJScreen: Environmental Justice Screening and Mapping Tool](https://www.epa.gov/ejscreen).
+
 #### References
 
 -   United States Environmental Protection Agency. 2015. EJSCREEN. Retrieved: 10, 06, 2025, from (<https://drive.google.com/file/d/1nG6Nj1bXfzQFOVMO8Km3eNy4SWu1YcIQ/view>)
 
 -   Wade, A. J. (2022, February 25). *Monterey County: Racial distribution and air pollution.* ArcGIS StoryMaps. [https://storymaps.arcgis.com/stories/4f19c2da231b4ecb98bc43db9b85e931](https://storymaps.arcgis.com/stories/4f19c2da231b4ecb98bc43db9b85e931?utm_source=chatgpt.com)
-
-
-

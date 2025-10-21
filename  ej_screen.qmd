@@ -2,10 +2,14 @@
 title: "Environmental Inequalities in Monterey County: Race and Air Pollution"
 format: html
 editor: visual
+author: "Austin Martinez"
+date: "10/21/2025"
 execute:
   message: false
   warning: false
 ---
+
+## Purpose
 
 The purpose of this script is to create 2 maps using data downloaded from the EPA website at the block group level for Monterrey County, CA. These maps were generated using the tmap package. The first map shows the percentile for people of color rate in Monterey County. The second map shows exposure risk for toxic air pollutants in Monterey County. To investigate a possible relationship.
 
@@ -17,11 +21,19 @@ library(here)
 library(tmap)
 ```
 
+## Reading in Data
+
+The ejscreen data used was sourced from the EPA website. This data set contains environmental and demographic information for the US at the Census tract and block group levels. This data will be used to investigate environmental injustices.
+
 ```{r}
 # Read in geodatabase of EJScreen data at the Census Block Group level
 ejscreen <- sf::st_read(here::here("data","EJSCREEN_2023_BG_StatePct_with_AS_CNMI_GU_VI.gdb"), 
                         quiet = TRUE) # Add quiet = TRUE to get rid of informational output
 ```
+
+## Data Cleaning
+
+The ejscreen data frame was filtered to only contain observations from Monterey County, CA. This done to see environmental injustices occurring in this specific region. The PEOPCOLORPCT column was multiplied by 100 make the observation integers instead of decimals for better clarity when plotting.
 
 ```{r}
 # Filter to only include California data
@@ -38,11 +50,15 @@ monterey <- ejscreen %>%
 monterey$PEOPCOLORPCT <- monterey$PEOPCOLORPCT * 100
 ```
 
+## Plotting
+
+To investigate environmental injustices in monastery two variables were selected: PEOPCOLORPCT (People of Color Percentile) and P_RSEI_AIR (Toxic Air Pollutant Exposure Risk Percentile). These variables were plotted on separate maps to compare whether areas with a higher percentage of people of color also experience higher levels of toxic air pollutant exposure risk.
+
 ```{r}
 # Generating Map 1
 tm_shape(monterey) + #defines spacial object to plot
   tm_polygons() +
-  tm_fill("PEOPCOLORPCT",  # % unemployed
+  tm_fill("PEOPCOLORPCT",  # % people of color
           palette = "Blues", 
           title = "POC Percentile (%)") + 
   tm_title("People of Color Percentile in Monterey County") +
