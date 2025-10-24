@@ -1,9 +1,10 @@
 ---
 title: "Environmental Inequalities in Monterey County: Race and Air Pollution"
-format: html
-editor: visual
 author: "Austin Martinez"
-date: "10/21/2025"
+date: "October 21, 2025"
+format:
+  html:
+    title-block-style: none
 execute:
   message: false
   warning: false
